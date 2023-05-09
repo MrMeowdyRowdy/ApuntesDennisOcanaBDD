@@ -2,6 +2,7 @@
 -- Apuntes Dennis Ocaña
 -- Fecha Modificacion: 08/05/2023 
 -----------------------------------------------------------------
+
 -----------------------------------------------------------------
 -- Script creación de base de datos SYNTAX
 -----------------------------------------------------------------
@@ -44,6 +45,7 @@ SIZE = 64MB,
 MAXSIZE = 128MB, 
 FILEGROWTH = 5MB ); 
 GO
+
 -----------------------------------------------------------------
 -- Creación de Tipos de datos - SYNTAX
 -----------------------------------------------------------------
@@ -80,6 +82,7 @@ AS @value LIKE '__-%[0-9]'GO
 
 sp_bindrule ReglaEjemploDennis, 'DennisEjemplo'
 GO
+
 -----------------------------------------------------------------
 -- Creación y enlace de valores por defecto -  SYNTAX
 -----------------------------------------------------------------
@@ -112,3 +115,4 @@ id INT IDENTITY ( 1 , 1 ) NOT NULL
 
 CONSTRAINT PK_Tabla  PRIMARY KEY (id)
 )
+
