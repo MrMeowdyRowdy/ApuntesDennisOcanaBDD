@@ -68,11 +68,7 @@ GO
 -----------------------------------------------------------------
 --CREATE RULE [ schema_name . ] rule_name
 --AS condition_expression
---[ ; ]
---Catálogo del sistema: sys.objects
---CREATE RULE patron_rule
---AS
---@value LIKE '__-%[0-9]'
+
 --sp_bindrule [ @rulename = ] 'rule' , 
 --[ @objname = ] 'object_name'
 --sp_unbindrule [ @objname = ] 'object_name' 
@@ -83,3 +79,21 @@ CREATE RULE ReglaEjemploDennis
 AS @value LIKE '__-%[0-9]'GO
 
 sp_bindrule ReglaEjemploDennis, 'DennisEjemplo'
+GO
+-----------------------------------------------------------------
+-- Creación y enlace de valores por defecto -  SYNTAX
+-----------------------------------------------------------------
+--CREATE DEFAULT [ schema_name . ]
+--default_name
+--AS constant_expression [ ; ]
+-----------------------------------------------------------------
+-- EJEMPLO
+-----------------------------------------------------------------
+CREATE DEFAULT DennisEjemplo
+AS 'Ejemplo';
+GO
+
+sp_bindefault DennisEjemplo, DennisEjemplo
+-----------------------------------------------------------------
+-- Creación y enlace de tablas
+-----------------------------------------------------------------
