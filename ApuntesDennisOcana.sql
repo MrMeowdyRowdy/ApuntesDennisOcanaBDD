@@ -97,3 +97,18 @@ sp_bindefault DennisEjemplo, DennisEjemplo
 -----------------------------------------------------------------
 -- Creación y enlace de tablas
 -----------------------------------------------------------------
+--CREATE TABLE
+--{schema_name.table_name | table_name }
+--( {
+--<column_definition> ::=
+--column_name <data_type> [ IDENTITY [ ( seed , increment ) ]
+--[ [ CONSTRAINT constraint_name ] {NULL | NOT NULL} ]
+-----------------------------------------------------------------
+-- EJEMPLO
+-----------------------------------------------------------------
+CREATE TABLE DennisTabla
+(
+id INT IDENTITY ( 1 , 1 ) NOT NULL
+
+CONSTRAINT PK_Tabla  PRIMARY KEY (id)
+)
