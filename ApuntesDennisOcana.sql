@@ -3,5 +3,23 @@
 -- Fecha Modificacion: 08/05/2023 
 -----------------------------------------------------------------
 -----------------------------------------------------------------
--- Script creación de base de datos
+-- Script creación de base de datos SYNTAX
 -----------------------------------------------------------------
+--USE master;
+--GO 
+--CREATE DATABASE nombreBaseDatos
+--ON 
+--( NAME = archivoDatos, 
+--FILENAME = 'C:\Program Files\Microsoft SQL 
+--Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\nombreArchivoDatos.mdf', 
+--SIZE = XXMB, 
+--MAXSIZE = XXMB, 
+--FILEGROWTH = X ) 
+--LOG ON 
+--( NAME = archivoLog, 
+--FILENAME = 'C:\Program Files\Microsoft SQL 
+--Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\NombreLog.ldf', 
+--SIZE = XXMB, 
+--MAXSIZE = XXMB, 
+--FILEGROWTH = 5MB ); 
+--GO
