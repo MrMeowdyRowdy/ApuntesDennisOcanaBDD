@@ -116,3 +116,6 @@ id INT IDENTITY ( 1 , 1 ) NOT NULL
 CONSTRAINT PK_Tabla  PRIMARY KEY (id)
 )
 
+---------------------------------------------------------------
+-- Creación y enlace de tablas
+---------------------------------------------------------------
