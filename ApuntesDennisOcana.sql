@@ -9,17 +9,77 @@
 --GO 
 --CREATE DATABASE nombreBaseDatos
 --ON 
---( NAME = archivoDatos, 
+--( NAME = nombreArchivoDatos, 
 --FILENAME = 'C:\Program Files\Microsoft SQL 
 --Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\nombreArchivoDatos.mdf', 
 --SIZE = XXMB, 
 --MAXSIZE = XXMB, 
 --FILEGROWTH = X ) 
 --LOG ON 
---( NAME = archivoLog, 
+--( NAME = NombreLog, 
 --FILENAME = 'C:\Program Files\Microsoft SQL 
 --Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\NombreLog.ldf', 
 --SIZE = XXMB, 
 --MAXSIZE = XXMB, 
 --FILEGROWTH = 5MB ); 
 --GO
+-----------------------------------------------------------------
+-- EJEMPLO
+-----------------------------------------------------------------
+USE master;
+GO 
+CREATE DATABASE BDDEjemplo
+ON 
+( NAME = DennisDatos, 
+FILENAME = 'C:\Program Files\Microsoft SQL 
+Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\DennisDatos.mdf', 
+SIZE = 64MB, 
+MAXSIZE = 128MB, 
+FILEGROWTH = 2 ) 
+LOG ON 
+( NAME = DennisLog, 
+FILENAME = 'C:\Program Files\Microsoft SQL 
+Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\DennisLog.ldf', 
+SIZE = 64MB, 
+MAXSIZE = 128MB, 
+FILEGROWTH = 5MB ); 
+GO
+-----------------------------------------------------------------
+-- Creación de Tipos de datos - SYNTAX
+-----------------------------------------------------------------
+--CREATE TYPE [ schema_name. ] type_name
+--{
+--[
+--FROM base_type [ ( precision [ , scale ] ) ] [ NULL | NOT NULL ]
+--]
+--| EXTERNAL NAME assembly_name [ .class_name ]
+--| AS TABLE ( {<column_definition> | <computed_column_definition> [ ,... n ] }
+--[ <table_constraint> ] [ ,... n ]
+--[ <table_index> ] [ ,... n ] } )
+--} [ ; ]-----------------------------------------------------------------
+-- EJEMPLO
+-----------------------------------------------------------------
+CREATE TYPE DennisEjemplo 
+FROM varchar(100) NOT NULL
+GO
+
+-----------------------------------------------------------------
+-- Creación de Tipos de datos - SYNTAX
+-----------------------------------------------------------------
+--CREATE RULE [ schema_name . ] rule_name
+--AS condition_expression
+--[ ; ]
+--Catálogo del sistema: sys.objects
+--CREATE RULE patron_rule
+--AS
+--@value LIKE '__-%[0-9]'
+--sp_bindrule [ @rulename = ] 'rule' , 
+--[ @objname = ] 'object_name'
+--sp_unbindrule [ @objname = ] 'object_name' 
+-----------------------------------------------------------------
+-- EJEMPLO
+-----------------------------------------------------------------
+CREATE RULE ReglaEjemploDennis
+AS @value LIKE '__-%[0-9]'GO
+
+sp_bindrule ReglaEjemploDennis, 'DennisEjemplo'
