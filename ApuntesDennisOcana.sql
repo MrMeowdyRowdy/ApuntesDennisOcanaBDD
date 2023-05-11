@@ -151,3 +151,36 @@ GO
 ADD ejemploColumna VARCHAR(20) NOT NULL
 CONSTRAINT tabla_uniq UNIQUE ;
 GO
+
+---------------------------------------------------------------
+-- Sentencia Select - SYNTAX
+---------------------------------------------------------------
+--SELECT [ ALL | DISTINC ] [ * ] [ListaColumnas_Expresiones] AS [Expresion] [ INTO new_table ]
+--FROM Tabla1 
+--[INNER | LEFT | RIGHT | FULL [OUTER] JOIN Tabla2 
+--ON Condiciones_Vinculos_Tablas] 
+--WHERE Condiciones
+--[GROUP BY expresión]
+--[HAVING condición de grupo]
+--ORDER BY ListaColumnas [ ASC / DESC ]
+
+---------------------------------------------------------------
+-- Crear vistas - SYNTAX
+---------------------------------------------------------------
+--CREATE VIEW [ nombre esquema. ] view_name
+--AS <select_statement>
+
+---------------------------------------------------------------
+-- Update - SYNTAX
+---------------------------------------------------------------
+--UPDATE Tabla
+--SET column = valor
+--WHERE condicion; 
+--GO
+
+---------------------------------------------------------------
+-- DELETE - SYNTAX
+---------------------------------------------------------------
+--Delete from Tabla
+--WHERE condicion; 
+--GO
