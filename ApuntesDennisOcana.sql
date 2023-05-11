@@ -1,6 +1,6 @@
 -----------------------------------------------------------------
 -- Apuntes Dennis Ocaña
--- Fecha Modificacion: 08/05/2023 
+-- Fecha Modificacion: 11/05/2023 
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
@@ -58,7 +58,8 @@ GO
 --| AS TABLE ( {<column_definition> | <computed_column_definition> [ ,... n ] }
 --[ <table_constraint> ] [ ,... n ]
 --[ <table_index> ] [ ,... n ] } )
---} [ ; ]-----------------------------------------------------------------
+--} [ ; ]
+-----------------------------------------------------------------
 -- EJEMPLO
 -----------------------------------------------------------------
 CREATE TYPE DennisEjemplo 
@@ -78,7 +79,8 @@ GO
 -- EJEMPLO
 -----------------------------------------------------------------
 CREATE RULE ReglaEjemploDennis
-AS @value LIKE '__-%[0-9]'GO
+AS @value LIKE '__-%[0-9]'
+GO
 
 sp_bindrule ReglaEjemploDennis, 'DennisEjemplo'
 GO
@@ -117,5 +119,35 @@ CONSTRAINT PK_Tabla  PRIMARY KEY (id)
 )
 
 ---------------------------------------------------------------
--- Creación y enlace de tablas
+-- Eliminacion de Objetos - SYNTAX
 ---------------------------------------------------------------
+--IF EXISTS
+--(SELECT name FROM sys.objects WHERE name =
+--‘NombreObjeto’ AND type =
+--‘TipoObjeto’)
+--DROP DEFAULT NombreObjeto
+--GO
+--IF OBJECT_ID (‘NombreTabla','U') IS NOT NULL
+--DROP TABLE NombreTabla;
+--GO
+
+--DROP TABLE IF EXISTS NombreTabla
+
+---------------------------------------------------------------
+-- Eliminacion de Objetos - EJEMPLO
+---------------------------------------------------------------
+DROP DATABASE IF EXISTS DennisEjemplo
+GO
+
+---------------------------------------------------------------
+-- Modificacion de tablas - SYNTAX
+---------------------------------------------------------------
+--ALTER TABLE tabla
+--ADD columna VARCHAR(20) NULL
+--CONSTRAINT tabla_uniq UNIQUE ;
+--GO---------------------------------------------------------------
+-- Modificacion de tablas - EJEMPLO
+---------------------------------------------------------------ALTER TABLE DennisEjemplo
+ADD ejemploColumna VARCHAR(20) NOT NULL
+CONSTRAINT tabla_uniq UNIQUE ;
+GO
